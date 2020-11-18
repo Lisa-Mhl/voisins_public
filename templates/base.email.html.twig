@@ -1,0 +1,23 @@
+{% apply inky_to_html|inline_css(source('@styles/foundation-emails.css'), source('@styles/email.css')) %}
+    <container>
+        <row class="header">
+            <columns>
+                <a href="{{ url('home') }}">
+                    <img src="{{ asset('uploads/files/window.png') }}" class="logo" alt="Mes Chers Voisins">
+                </a>
+            </columns>
+        </row>
+        {% block body %}
+        {% endblock %}
+        <row class="bottom">
+            <columns>
+                <center>
+                    <spacer size="20"></spacer>
+                    <div>
+                        Envoyé avec ❤️ de la part de Mes Chers Voisins
+                    </div>
+                </center>
+            </columns>
+        </row>
+    </container>
+{% endapply %}

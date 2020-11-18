@@ -1,0 +1,83 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% if app.user.buildingPassword is same as (user.buildingPassword) %}
+        <div class="ctn" id="profileCtn">
+            <p>
+                {% if user.avatar %}
+                    <img class="avatar" src="{{ user.avatar }}" alt="avatar"><br>
+                {% endif %}
+                <span class="profileUsername">{{ user.username }}</span> <br>
+
+                {% if user.status == 1 and user.category ==1 %}
+                {% set status='Je suis disponible, contactez-moi si vous avez besoin d\'aide !' %}
+
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#contact"
+                        aria-expanded="false" aria-controls="collapseExample">
+                    {% if app.user is same as(user) %}
+                       <div class="btn contactBtn">Contact</div>
+                    {% else %}
+                        Contacter {{ user.username }}
+                    {% endif %}
+                </button>
+            <div class="collapse" id="contact">
+                <i class="fa fa-envelope" aria-hidden="true" id="emailIcon"></i>
+                <a class="mailTo" href="mailto:{{ user.email }} ">{{ user.email }}</a><br>
+                {% if user.phone %}
+                    <i class="fa fa-phone" aria-hidden="true" id="emailIcon"></i>
+                    0{{ user.phone }}<br>
+                {% endif %}
+            </div>
+            <br>
+            {{ status }}<br>
+            {% elseif user.status == 0 %}
+                {% set status='Je ne suis pas disponible pour le moment' %}
+                {{ status }}<br>
+            {% else %}
+                <button class="btn" type="button" data-toggle="collapse" data-target="#contact2"
+                        aria-expanded="false" aria-controls="collapseExample" id="contactBtn">
+                    Contacter {{ user.username }}
+                </button>
+                <div class="collapse" id="contact2">
+                    <i class="fa fa-envelope" aria-hidden="true" id="emailIcon"></i>
+                    <a class="mailTo" href="mailto:{{ user.email }}">{{ user.email }}</a><br>
+                    {% if user.phone %}
+                        <i class="fa fa-phone" aria-hidden="true" id="emailIcon"></i>
+                        0{{ user.phone }}<br>
+                    {% endif %}
+                </div>
+            {% endif %}
+            </p>
+            {% if user.help and user.category == 0 %}
+                <div class="bold profileArticleTitle"> Mes chers voisins, j'ai besoin d'aide !</div>
+                <br>
+                {{ user.help }}
+            {% elseif user.help and user.status ==1%}
+                <span class="bold profileArticleTitle">L'aide que je propose : </span>{{ user.help }}
+            {% endif %}
+        </div>
+
+        <div class="profileBtns">
+            {% if app.user.id is same as (user.id) %}
+                <a class="formBtn" id="profileBtn" href="{{ path('user_edit', {'id': app.user.id }) }}">Mettre mon
+                    profil à jour</a>
+            {% endif %}
+            <div class="center">
+                <a class="btn formBtn" id="backLinkProfile" href="{{ path('home') }}">Retour à l'immeuble</a>
+            </div>
+        </div>
+
+        {% if articles %}
+            <div class="profileArticleCtn">
+                <h5 class="profileArticleTitle">Mes Articles :</h5>
+                {% for article in articles %}
+                    - <a href="{{ path('article_show', {'id': article.id}) }}">{{ article.title }}</a><br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% else %}
+        <p>Vous n'êtes pas autorisé à accéder à cette page</p>
+    {% endif %}
+
+{% endblock %}
+

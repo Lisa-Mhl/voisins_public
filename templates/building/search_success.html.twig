@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="text-container">
+        <h1>Youpi !!</h1>
+    </div>
+
+    <p class="info" id="newSuccessInfo">
+        Votre Immeuble est disponible sur la plateforme<br><br>
+        <span class="bold">CODE IMMEUBLE</span> <i class="fa fa-arrow-right" id="rightArrow" aria-hidden="true"></i>
+        <span class="bold buildingPw"> {{ building.password }}</span><br><br>
+        Vous pouvez désormais vous rendre sur la <a target="_blank" href="{{ path('app_register') }}">page
+            d'inscription</a> muni de ce code afin de rejoindre vos voisins du
+        {{ building.street }} <i class="fa fa-smile-o" aria-hidden="true"></i>
+    </p>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1 class="text-center pageTitle">Fonctionnement du Site</h1>
+
+    <div class="ctn">
+        <div>
+            <p><span class="bold">Etape 1 : Recherchez votre immeuble sur la</span> <a target="_blank"
+                                                                                       href="{{ path('home') }}">page
+                    d'accueil</a>
+                <br>
+                -> <span class="underline">Votre immeuble existe</span> : Demandez le Code Immeuble pour pouvoir vous
+                inscrire <br>
+                -> <span class="underline">Votre immeuble n'existe pas</span> : <a target="_blank"
+                                                                                   href="{{ path('building_new') }}">Ajoutez
+                    votre immeuble avant de vous inscrire</a></p>
+        </div>
+        <div>
+            <p><span class="bold">Etape 2 : Créez votre compte et connectez-vous</span></p>
+        </div>
+
+        <div>
+            <p><span class="bold">Etape 3 : Actualisez votre statut</span><br>
+            - Indiquez vos besoins ou les services que vous proposez<br>
+            - Restez attentifs aux besoins des voisins</p>
+        </div>
+    </div>
+
+{% endblock %}
+

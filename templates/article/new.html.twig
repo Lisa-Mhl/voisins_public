@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.user %}
+        <h1 class="text-center pageTitle">Publier un article</h1>
+
+        {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+        <div class="formCtn" id="articleNewCtn">
+            <div class="hidden">
+                {{ form_widget(form.author) }}
+                {{ form_widget(form.updatedAt) }}
+            </div>
+            {{ form_label(form.title, 'Titre') }}
+            {{ form_widget(form.title) }}
+            {{ form_label(form.content, 'Contenu de votre article') }}
+            {{ form_widget(form.content, {'attr' : {'style': 'height: 350px'}}) }}
+            {{ form_label(form.poster, 'Image d\'illustration (facultatif)') }}
+            {{ form_widget(form.poster) }}
+            <div class="center">
+                <button class="btn formBtn" type="submit">Publier</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.user %}
+        <h1 class="pageTitle text-center">{{ article.title }}</h1>
+        <div class="ctn articleShowCtn">
+        {% if article.poster %}
+            <img class="poster" src="{{ article.poster }}">
+        {% endif %}
+        <p class="articleShowBody">{{ article.content }}</p>
+
+
+        <a href="{{ path('news') }}#{{ article.id }}">Retour aux articles</a> <br>
+
+        <div class="center">
+        {% if app.user is same as (article.author) %}
+            <a class="formBtn" href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
+            </div>
+            {{ include('article/_delete_form.html.twig') }}
+        {% endif %}
+    {% endif %}
+    </div>
+{% endblock %}

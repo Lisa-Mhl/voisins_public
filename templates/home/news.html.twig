@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.user %}
+        <h1 class="pageTitle text-center">Quoi de neuf les voisins ?</h1>
+        <div class="center">
+            <a href="{{ path('article_new') }}" class="formBtn">Publier un article</a>
+        </div>
+        <div class="ctn" id="articleCtn">
+            <div class="row" id="articles">
+                {% for article in articles %}
+                    {% if app.user.buildingPassword is same as (article.author.buildingPassword) %}
+                        <div class="col-lg-3 col-md-6 col-sm-7" id="articleCard">
+                            <p class="card-title" id="{{ article.id }}">
+                                <a id="titleCard" class="stretched-link"
+                                   href="{{ path('article_show', {'id': article.id}) }}">{{ article.title | upper }}</a>
+                            </p>
+                            <div class="card-author">
+                        <span class="articleLeft">
+                            {% if article.author.avatar %}
+                                <img src="{{ article.author.avatar }}" class="profilPix">
+                            {% endif %}
+                            {{ article.author }}
+                        </span>
+                                <span class="articleRight">
+                            {{ article.updatedAt |date('d M.') }}
+                        </span>
+                            </div>
+                            {% if article.poster %}
+                                <img class="card-img" src="{{ article.poster }}">
+                            {% endif %}
+                            <p class="card-body articleBody">
+                                {% if article.content | length >= 250 %}
+                                    voir l'article
+                                {% else %}
+                                    {{ article.content }}
+                                {% endif %}
+                            </p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

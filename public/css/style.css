@@ -1,0 +1,593 @@
+/************************************************* DESKTOP VERSION *****************************************************/
+
+/*** GENERAL ***/
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+
+body {
+    background-color: floralwhite;
+}
+
+* {
+    font-family: 'Oxygen', sans-serif;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.ctn {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    margin: 3em auto 5em;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.pageTitle {
+    margin-top: 1em;
+}
+
+.formBtn {
+    padding: 0.5em;
+    background-color: lightseagreen;
+    border-radius: 5px;
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+    transition: 0.5s;
+}
+
+.formBtn:hover {
+    transition: 0.5s;
+    text-decoration: none;
+    color: whitesmoke;
+    background-color: #1d948c;
+}
+
+#backLink {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: whitesmoke;
+    color: dodgerblue;
+}
+
+#backLink:hover {
+    background-color: lightgray;
+    color: dodgerblue;
+}
+
+.mailTo {
+    color: black;
+}
+
+.mailTo:hover {
+    text-decoration: none
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/*** NAVBAR ***/
+.nav-bar {
+    background: linear-gradient(#554673, #ab99c9);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navLink {
+    color: #fdedc9;
+    padding: 2em;
+    letter-spacing: 3px;
+}
+
+:root {
+    --shadow-color: #FF9E9E;
+    --shadow-color-light: white;
+}
+
+.navLink:hover {
+    animation: neon 3s infinite;
+    text-decoration: none;
+    color: whitesmoke;
+    letter-spacing: 3px;
+}
+
+@keyframes neon {
+    0% {
+        text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+        0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light),
+        0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
+    }
+    50% {
+        text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+        0 0 5px var(--shadow-color-light), 0 0 15px var(--shadow-color-light), 0 0 25px var(--shadow-color-light),
+        0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 60px var(--shadow-color), 0 0 80px var(--shadow-color), 0 0 110px var(--shadow-color), 0 0 210px var(--shadow-color);
+    }
+    100% {
+        text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+        0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light),
+        0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
+    }
+}
+
+.navLogo {
+    height: 80px;
+    padding: 0.8em;
+}
+
+
+/*** LOGIN ***/
+
+.loginCtn {
+    margin-top: 10%;
+}
+
+.formLink {
+    color: mediumblue;
+}
+
+.formLink:hover {
+    color: mediumblue;
+}
+
+.formFs {
+    margin-top: 5em;
+    background: linear-gradient(132deg, #24c6dc, #3494e6, #ec6ead, #f80759, #bc4e9c);
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: whitesmoke;
+}
+
+/* Animate Background*/
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+.form-control {
+    margin-bottom: 1em;
+}
+
+.RegisterLink {
+    margin-top: 1em;
+}
+
+.registerCtn {
+    margin-top: 8%;
+}
+
+/********** PROFILE **********/
+
+#profileCtn {
+    font-size: 1.2em;
+    background-color: white;
+    padding: 1em;
+    width: 45%;
+    box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2);
+}
+
+#backLinkProfile {
+    margin-bottom: 1em;
+    background-color: whitesmoke;
+    color: dodgerblue;
+    font-size: 1.2em;
+}
+
+#backLinkProfile:hover {
+    background-color: lightgray;
+    color: dodgerblue;
+    font-size: 1.2em;
+}
+
+.avatar {
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    margin-bottom: 1em;
+}
+
+#emailIcon {
+    margin-right: 0.2em;
+}
+
+#profileBtn {
+    position: absolute;
+    top: 20%;
+    left: 60%;
+}
+
+#contactBtn {
+    color: dodgerblue;
+}
+
+#contactBtn:hover {
+    color: #1c66ca;
+    text-decoration: none;
+}
+
+.category {
+    margin-top: 1em;
+}
+
+.contactBtn {
+    background-color: #ab99c9;
+    color: floralwhite;
+}
+
+.contactBtn:hover {
+    background-color: #8f7dac;
+    color: floralwhite;
+}
+
+#contact {
+    margin-bottom: 1em;
+}
+
+.helpCtn {
+    background-color: whitesmoke;
+}
+
+.profileArticleTitle {
+    color: #ab99c9;
+    font-weight: bold;
+}
+
+.profileArticleCtn {
+    position: absolute;
+    top: 13%;
+    left: -15%;
+    width: 50%;
+    text-align: center;
+}
+
+#editProfileCtn {
+    width: 30%;
+    text-align: left;
+    color: gray;
+}
+
+.formCtn {
+    padding: 1em;
+    background-color: #fff0e1;
+    margin-bottom: 2em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.formTitle {
+    font-size: 0.9em;
+    font-style: italic;
+    font-weight: bold;
+    color: #ab99c9;
+    padding-top: 0.5em;
+}
+
+.profileDropDown {
+    text-align: center;
+}
+
+#plusBtn {
+    width: 0px;
+}
+
+.help {
+    font-size: 0.8em;
+    color: #ab99c9;
+}
+
+.help:hover {
+    text-decoration: none;
+    color: lightseagreen;
+}
+
+#deleteProfile {
+    background-color: lightgray;
+    color: red;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+#deleteProfile:hover {
+    color: whitesmoke;
+    background-color: red;
+}
+
+.align {
+    display: flex;
+    flex-direction: row;
+}
+
+.tel {
+    padding-top: 0.5em;
+    padding-right: 0.5em;
+}
+
+.profileUsername {
+    font-family: 'Indie Flower', cursive;
+    color: #ab99c9;
+    font-weight: bold;
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+/********** HOME **************/
+
+#coverBuilding {
+    width: 100%;
+    background-color: #021418
+}
+
+.building {
+    position: absolute;
+    top: 100px;
+    left: 20%;
+    right: 20%;
+}
+
+#homeCtn {
+    width: 80%;
+    background-color: #ff9453;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 5em;
+}
+
+.bottomBuilding {
+    position: absolute;
+    top: 1100px;
+    left: 0;
+    right: 0;
+    min-height: 350px;
+    background-color: #021418;
+
+}
+
+.card-img {
+    height: 250px;
+}
+
+#flatCard {
+    padding: 1em;
+    border: none;
+}
+
+.username {
+    padding: 0.5em;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    color: #3b4154;
+    font-weight: bold;
+}
+
+.username:hover {
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#flats {
+    padding: 0;
+    margin: 0;
+}
+
+.bottom {
+    height: 450px;
+}
+
+#homeCover {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff0e1;
+    padding-bottom: 8em;
+
+}
+
+.homeTitle {
+    margin-top: 12%;
+}
+
+.subtitle {
+    font-size: 0.5em;
+}
+
+#searchCtn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    width: 350px;
+    background-color: transparent;
+    text-align: left;
+}
+
+.searchTitle {
+    padding-bottom: 1em;
+}
+
+.searchBar {
+    margin-top: 3em;
+}
+
+#searchForm {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#searchBarIpt {
+    margin-top: 1em;
+}
+
+#emailIpt {
+    width: 12%;
+    margin: auto;
+}
+
+/********** ADD BUILDING **************/
+
+.info {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#newSuccessInfo {
+    width: 30%;
+}
+
+.addBuildingEmail {
+    width: 350px;
+}
+
+.buildingPw {
+    background-color: #ab99c9;
+    color: #fdedc9;
+    padding: 0.2em 0.5em;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+.text-container h1 {
+    font-size: 5em;
+    color: rgba(255, 255, 255, .2);
+    background-image: url("https://i.postimg.cc/LsqPKhDx/confettis.png");
+    /*   background-position: center; */
+    background-size: 270px;
+    background-repeat: repeat-x;
+    -webkit-background-clip: text;
+    animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position: left 0px top 0px;
+    }
+    40% {
+        background-position: left 800px top 0px;
+    }
+}
+
+.text-container {
+    margin-top: 3em;
+    text-align: center;
+}
+
+#rightArrow {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+}
+
+/********** NEWS **************/
+
+#articles {
+    justify-content: center;
+}
+
+#articleCtn {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#articleCard {
+    background: linear-gradient(#ab99c9, #554673);
+    width: 20%;
+    padding: 1em;
+    margin: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #fdedc9;
+    letter-spacing: 1.3px;
+}
+
+.articleBody {
+    color: floralwhite;
+    text-align: justify;
+    border-style: solid;
+    border-color: #fdedc9;
+    margin-top: 1em;
+}
+
+#titleCard {
+    color: floralwhite;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-bottom: 1.5em;
+}
+
+#titleCard:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: floralwhite;
+}
+
+.profilPix {
+    border-radius: 100%;
+    width: 25px;
+}
+
+#articleNewCtn {
+    width: 50%;
+    margin: auto;
+    background-color: transparent;
+}
+
+.card-author {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.3em;
+}
+
+.articleRight {
+    font-size: 0.8em;
+    color: lightgray;
+}
+
+.poster {
+    max-height: 350px;
+    margin: auto;
+}
+
+.articleShowBody {
+    margin-top: 1em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}

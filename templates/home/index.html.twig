@@ -1,0 +1,71 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {% if app.user %}
+        <video autoplay muted loop id="coverBuilding">
+            <source src="{{ asset('uploads/files/Pixel-City-Live-Wallpaper.mp4') }}" type="video/mp4">
+        </video>
+        <div class="bottomBuilding"></div>
+
+        <section class="building">
+            <h1 class="text-center pageTitle">Bienvenue dans l'immeuble !</h1>
+            {# TO DO : AJOUTER FILTRE SUR DISPONIBLE ET BESOIN D'AIDE #}
+            <div class="ctn" id="homeCtn">
+                <div class="row" id="flats">
+                    {% for user in users %}
+                        {% if app.user.buildingPassword is same as (user.buildingPassword) %}
+                            <div class="col-lg-3 col-md-6 col-sm-7" id="flatCard">
+                                {% if user.status == 1 and user.category == 1 %}
+                                    <img class="card-img" src="https://i.postimg.cc/ZR54SSZh/disponible.png">
+                                {% elseif user.status == 0 %}
+                                    <img class="card-img" src="https://i.postimg.cc/DZNk34Bq/indisponible.png">
+                                {% elseif user.category == 0 %}
+                                    <img class="card-img" src="https://i.postimg.cc/1Rg4nGh1/aide.png">
+                                {% endif %}
+                                {% if user.status ==1 %}
+                                    <a href="{{ path('profile', {'id':user.id}) }}"
+                                       class="body username stretched-link">{{ user.username |upper }}</a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+                <img src="https://i.postimg.cc/C5h66Gyh/bottom.png" class="bottom">
+            </div>
+        </section>
+
+    {% else %}
+        <div id="homeCover">
+            <img src="https://i.postimg.cc/8knT6mDM/3740072.jpg">
+            <div class="ctn">
+                <section class="homeTitle">
+                    <h1 class="text-center">Mes Chers Voisins <br>
+                        <span class="subtitle">Plateforme d'entraide entre voisins d'immeuble</span>
+                    </h1>
+                    <div class="formCtn" id="searchCtn">
+                        <h6 class="bold text-center searchTitle">Rechercher mon immeuble</h6>
+                        {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+                        <div class="hidden">
+                            {{ form_widget(form.password) }}
+                            {{ form_widget(form.id) }}
+                        </div>
+                        {{ form_label(form.street, 'Adresse') }}
+                        {{ form_widget(form.street) }}
+                        {{ form_label(form.zipcode, 'Code Postal') }}
+                        {{ form_widget(form.zipcode) }}
+                        {{ form_label(form.city, 'Ville') }}
+                        {{ form_widget(form.city) }}
+                        <div class="center">
+                            <button class="btn formBtn" type="submit">Rechercher</button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock %}
+

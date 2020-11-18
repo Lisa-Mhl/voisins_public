@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1 class="pageTitle text-center">Flûte ! Votre immeuble n'est pas encore disponible...</h1>
+    <div class="info">
+        Votre immeuble n'est pas encore enregistré sur la plateforme ?<br> Faites-le dès à présent en renseignant son adresse
+        dans le formulaire ci-dessous. <br><br>
+        Vous obtiendrez le <span class="bold">Code Immeuble</span> qui vous sera demandé lors de votre inscription sur
+        le site, ainsi qu'à tous vos voisins souhaitant s'inscrire.<br><br>
+    </div>
+    <div class="ctn" id="editProfileCtn">
+        {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+        <div class="hidden">
+            {{ form_widget(form.password) }}
+        </div>
+
+        <div class="formCtn">
+            {{ form_label(form.street,'Adresse') }}
+            {{ form_widget(form.street) }}
+            {{ form_label(form.zipcode,'Code Postal') }}
+            {{ form_widget(form.zipcode) }}
+            {{ form_label(form.city,'Ville') }}
+            {{ form_widget(form.city) }}
+        <div class="center">
+            <button class="formBtn">{{ button_label|default('Enregistrer') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

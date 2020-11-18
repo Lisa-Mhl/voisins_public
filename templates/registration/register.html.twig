@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert" xmlns="http://www.w3.org/1999/html">{{ flashError }}</div>
+    {% endfor %}
+    <div class="registerCtn">
+        <fieldset class="formFs">
+
+            <h1 class="text-center">Créer un compte</h1>
+
+            {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_label(registrationForm.username, 'Pseudo') }}
+            {{ form_widget(registrationForm.username, {'attr' : {'style': 'height: 40px'}}) }}
+
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Mot de Passe'
+            }) }}
+            {{ form_label(registrationForm.buildingPassword, ('Code Immeuble')) }}
+            <a class="help" target="_blank" href="{{ path('about') }}">Où l'obtenir ?</a>
+            {{ form_widget(registrationForm.buildingPassword) }}
+            {{ form_row(registrationForm.agreeTerms, {
+                label: 'J\'accepte les conditions d\'utilisation'
+            }
+            ) }}
+            <div class="center">
+                <button type="submit" class="formBtn">Créer mon Compte</button>
+            </div>
+            <div class="text-center RegisterLink">Vous avez déjà un compte ? <a class="formLink"
+                                                                                href="{{ path('app_login') }}">Connectez-vous</a>
+            </div>
+
+            {{ form_end(registrationForm) }}
+        </fieldset>
+    </div>
+{% endblock %}

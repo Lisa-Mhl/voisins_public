@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if app.user.id is same as (user.id) %}
+        <h1 class="text-center pageTitle">Mettre à jour mon profil</h1>
+        <div class="ctn" id="editProfileCtn">
+            {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+            <div class="hidden">
+                {{ form_widget(form.password) }}
+                {{ form_widget(form.isVerified) }}
+            </div>
+            <div class="formCtn">
+                <h3 class="formTitle text-right">Statut</h3>
+                {{ form_label(form.status, 'Statut') }}
+                {{ form_widget(form.status) }}
+                {{ form_label(form.category, 'Classement') }}<br>
+                <span class="help">Indiquez ici si vous avez besoin d'aide, ou si vous proposez votre aide</span>
+                {{ form_widget(form.category) }}
+                {{ form_label(form.help, 'Mes services / Mes besoins') }}<br>
+                <span class="help">Détaillez ici l'aide dont vous avez besoin, ou les services que vous proposez</span>
+                {{ form_widget(form.help) }}
+            </div>
+
+            <div class="formCtn">
+                <h3 class="formTitle text-right">Informations Générales
+                    <button class="btn" type="button" data-toggle="collapse" data-target="#info"
+                            aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa fa-plus-circle" aria-hidden="true" id="plusBtn"></i>
+                    </button>
+                </h3>
+                <div class="collapse" id="info">
+                    {{ form_label(form.username,'Pseudo') }}
+                    {{ form_widget(form.username) }}
+                    {{ form_label(form.avatar,'Photo de Profil') }}
+                    {{ form_widget(form.avatar) }}
+                    {{ form_label(form.buildingPassword,'Code de mon immeuble') }}
+                    <span class="help"><a href="#">Où l'obtenir ?</a></span>
+                    {{ form_widget(form.buildingPassword) }}
+                    {# TO DO : AJOUTER MODIF PASSWORD #}
+                </div>
+            </div>
+
+            <div class="formCtn">
+                <h3 class="formTitle text-right">Contact
+                    <button class="btn" type="button" data-toggle="collapse" data-target="#contact"
+                            aria-expanded="false" aria-controls="collapseExample" id="plusBtn">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </button>
+                </h3>
+                <div class="collapse" id="contact">
+                    {{ form_label(form.email,'Email') }}<br>
+                    <span class="help">Votre email est affiché sur votre profil pour que vous voisins puissent vous contacter</span>
+                    {{ form_widget(form.email) }}
+                    {{ form_label(form.phone,'Téléphone') }}<br>
+                    <span class="help">Laissez vide si vous ne souhaitez pas le communiquer à vos voisins</span>
+                    <div class="align">
+                        <p class="tel">+33(0)</p>{{ form_widget(form.phone) }}
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                <button class="formBtn">{{ button_label|default('Enregistrer') }}</button>
+            </div>
+            {{ form_end(form) }}
+
+            <div class="center">
+                <a class="btn formBtn" id="backLink" href="{{ path('profile', {'id': app.user.id }) }}">Abandonner les
+                    modifications</a>
+            </div>
+            <div>
+                {{ include('user/_delete_form.html.twig') }}
+            </div>
+        </div>
+    {% else %}
+        <p>Seul un utilisateur connecté peut modifier son profil</p>
+    {% endif %}
+{% endblock %}
